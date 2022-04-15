@@ -8,29 +8,40 @@ th div {
 </style> 
 
 <div class="container">
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createArticleModal">
-      Create Article
-    </button>
-    <input id="hidden-sort" type="hidden" value="id" />
-    <input id="hidden-direction" type="hidden" value="asc" />
-    <button type="button" id="delete-selected-articles" class="btn btn-danger">
-      Delete selected
-    </button>
-    <div id="alert" class="alert alert-success d-none">
-    </div>    
-    <div class="searchAjaxForm">
-      <input id="searchValue" type="text">
-      <button type="button" id="submitSearch">Find</button>
-      <span class="search-feedback"></span>
-    </div> 
-    <div class="filter">
-        <select name="select_type_id" id="select_type_id">
-            <option value="all">Select type</option>
-                @foreach ($types as $type)
-                   <option value="{{$type->id}}" >{{$type->title}}</option>
-                @endforeach
-        </select>
+  <div class="row">
+    <div class="col-md-6">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createArticleModal">
+          Create Article
+        </button>
+        <input id="hidden-sort" type="hidden" value="id" />
+        <input id="hidden-direction" type="hidden" value="asc" />
+        <button type="button" id="delete-selected-articles" class="btn btn-danger">
+          Delete selected
+        </button>
+        <a class="btn btn-primary" href="{{ route('type.index') }}">
+        Back to types list
+        </a>
     </div>
+        <div id="alert" class="alert alert-success d-none">
+        </div>    
+        <div class="col-md-3">
+            <div class="searchAjaxForm">
+              <input id="searchValue" class="form-control" class="col-md-3"  minlength="3" type="text">
+              <button type="button" id="submitSearch">Find</button>
+              <span class="search-feedback"></span>
+            </div> 
+        </div>
+      <div class="col-md-3">
+        <div class="filter">
+            <select class="form-select" name="select_type_id" id="select_type_id">
+                <option value="all">Select type</option>
+                    @foreach ($types as $type)
+                      <option value="{{$type->id}}" >{{$type->title}}</option>
+                    @endforeach
+            </select>
+        </div>
+      </div>
+  </div>
     <table id="articles-table" class="table table-striped">
         <thead>
           <tr>
@@ -67,10 +78,10 @@ th div {
           <td class="col-article-title"></td>
           <td class="col-article-description"></td>
           <td class="col-article-type-id"></td>
-          <td>
-            <button class="btn btn-danger delete-article d-none" type="submit" data-articleid="">DELETE</button>
-            <button type="button" class="btn btn-primary show-article d-none" data-bs-toggle="modal" data-bs-target="#showArticleModal" data-articleid="">Show</button>
-            <button type="button" class="btn btn-secondary edit-article d-none" data-bs-toggle="modal" data-bs-target="#editArticleModal" data-articleid="">Edit</button>
+          <td style="width: 250px">
+            <button class="btn btn-danger delete-article " type="submit" data-articleid="">DELETE</button>
+            <button type="button" class="btn btn-primary show-article " data-bs-toggle="modal" data-bs-target="#showArticleModal" data-articleid="">Show</button>
+            <button type="button" class="btn btn-secondary edit-article " data-bs-toggle="modal" data-bs-target="#editArticleModal" data-articleid="">Edit</button>
           </td>
         </tr>  
     </table>  
@@ -89,6 +100,7 @@ th div {
         });
        
         function createRowFromHtml(articleId, articleTitle,  articleDescription, articleTypetitle ) {
+          $(".template tr").removeAttr("class");
           $(".template tr").addClass("article"+articleId);
           $(".template .delete-article").attr('data-articleid', articleId );
           $(".template .show-article").attr('data-articleid', articleId );

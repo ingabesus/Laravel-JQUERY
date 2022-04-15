@@ -9,20 +9,31 @@ th div {
 </style> 
 
 <div class="container">
-     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createTypeModal">
-      Create type
-    </button>
-    <input id="hidden-sort" type="hidden" value="id" />
-    <input id="hidden-direction" type="hidden" value="asc" />
-    <button id="remove-table">Remove table</button>
-    <div id="alert" class="alert alert-success d-none">
-    </div>  
+  <div class="row">
+    <div class="col-md-6">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createTypeModal">
+          Create type
+        </button>
+        <input id="hidden-sort" type="hidden" value="id" />
+        <input id="hidden-direction" type="hidden" value="asc" />
+        <!-- <button id="remove-table">Remove table</button>
+        <div id="alert" class="alert alert-success d-none">
+        </div>   -->
 
-    <div class="searchAjaxForm">
-    <input id="searchValue" type="text">
-    <button type="button" id="submitSearch">Find</button>
-    </div> 
-
+        
+          <div class="searchAjaxForm" >
+            <input id="searchValue" class="form-control"    minlength="3" type="text">
+            <button type="button" id="submitSearch">Find</button>
+          </div> 
+       
+      
+          <a class="btn btn-primary " href="{{ route('article.index') }}">
+            Article list
+          </a>
+        
+    </div>
+  </div>
+    
     <table id="types-table" class="table table-striped">
         <thead> 
             <tr>
@@ -38,7 +49,7 @@ th div {
                 <td class="col-type-id">{{$type->id}}</td>
                 <td class="col-type-title">{{$type->title}}</td>
                 <td class="col-type-description">{{$type->description}}</td>
-                <td>            
+                <td style="width: 250px">            
                     <button class="btn btn-danger delete-type" type="submit" data-typeid="{{$type->id}}">DELETE</button>
                     <button type="button" class="btn btn-primary show-type" data-bs-toggle="modal" data-bs-target="#showTypeModal" data-typeid="{{$type->id}}">Show</button>
                     <button type="button" class="btn btn-secondary edit-type" data-bs-toggle="modal" data-bs-target="#editTypeModal" data-typeid="{{$type->id}}">Edit</button>
@@ -52,7 +63,7 @@ th div {
           <td class="col-type-id"></td>
           <td class="col-type-title"></td>
           <td class="col-type-description"></td>
-          <td>
+          <td style="width: 250px">
             <button class="btn btn-danger delete-type" type="submit" data-typeid="">DELETE</button>
             <button type="button" class="btn btn-primary show-type" data-bs-toggle="modal" data-bs-target="#showTypeModal" data-typeid="">Show</button>
             <button type="button" class="btn btn-secondary edit-type" data-bs-toggle="modal" data-bs-target="#editTypeModal" data-typeid="">Edit</button>
