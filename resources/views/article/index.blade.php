@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+<title>Articles</title>
 <style>
 th div {
   cursor: pointer;
@@ -46,7 +47,7 @@ th div {
         <thead>
           <tr>
               <th><div class="articles-sort" data-sort="id" data-direction="asc">Id</div></th>
-              <th style="width: 20px;">Select all<input type="checkbox" id="select_all_articles"/></th>
+              <th style="width: 20px;">All<input type="checkbox" id="select_all_articles"/></th>
               <th><div class="articles-sort" data-sort="title" data-direction="asc">Title</div></th>
               <th><div class="articles-sort" data-sort="description" data-direction="asc">Description</div></th>
               <th><div class="articles-sort" data-sort="articleType.title" data-direction="asc">Type</div></th>

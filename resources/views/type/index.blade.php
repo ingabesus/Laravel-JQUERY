@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<title>Types</title>
 <style>
 th div {
   cursor: pointer;
@@ -16,22 +16,20 @@ th div {
         </button>
         <input id="hidden-sort" type="hidden" value="id" />
         <input id="hidden-direction" type="hidden" value="asc" />
-        <!-- <button id="remove-table">Remove table</button>
-        <div id="alert" class="alert alert-success d-none">
-        </div>   -->
-
-        
-          <div class="searchAjaxForm" >
+        <span class="search-feedback"></span>
+</div>    
+<div class="col-md-3">  
+        <div class="searchAjaxForm" >
             <input id="searchValue" class="form-control"    minlength="3" type="text">
             <button type="button" id="submitSearch">Find</button>
-          </div> 
-       
-      
-          <a class="btn btn-primary " href="{{ route('article.index') }}">
-            Article list
+        </div> 
+</div> 
+<div class="col-md-3">          
+          <a class="btn btn-primary" href="{{ route('article.index') }}">
+            Articles list
           </a>
-        
-    </div>
+</div>  
+   
   </div>
     
     <table id="types-table" class="table table-striped">
