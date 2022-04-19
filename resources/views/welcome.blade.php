@@ -44,16 +44,20 @@
                     <p> INGOS PIRMOJI APLIKACIJA  
                     </p>
                 </div>
-                <td>
-                    <a class="btn btn-primary" href="{{ route('article.index') }}">
-                        Articles list
-                    </a>
-                 </td>
-                 <td>
-                    <a   href="{{ route('type.index') }}">
-                    Types list
-                    </a>
-                </td>
+                <table>
+                    <tr>
+                        <td>
+                            <a class="btn btn-primary" href="{{ route('article.index') }}">
+                            //Articles list//
+                            </a>
+                        </td>
+                        <td>
+                            <a   href="{{ route('type.index') }}">
+                            //Types list//
+                            </a>
+                        </td>
+                    </tr>
+                </table>
             </div>
             
         </div>
