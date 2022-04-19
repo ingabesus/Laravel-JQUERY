@@ -27,7 +27,7 @@ th div {
         </div>    
         <div class="col-md-3">
             <div class="searchAjaxForm">
-              <input id="searchValue" class="form-control" class="col-md-3"  minlength="3" type="text">
+              <input id="searchValue" class="form-control" class="col-md-3"  minlength="3" type="text" placeholder="Search">
               <button type="button" id="submitSearch">Find</button>
               <span class="search-feedback"></span>
             </div> 

@@ -20,7 +20,7 @@ th div {
 </div>    
 <div class="col-md-3">  
         <div class="searchAjaxForm" >
-            <input id="searchValue" class="form-control"    minlength="3" type="text">
+            <input id="searchValue" class="form-control"    minlength="3" type="text" placeholder="Search">
             <button type="button" id="submitSearch">Find</button>
         </div> 
 </div> 
@@ -268,6 +268,8 @@ th div {
                 }
             });
         });
+
+         
 
         $('.types-sort').click(function() {
           let sort;
